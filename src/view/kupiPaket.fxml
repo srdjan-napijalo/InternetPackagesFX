@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.collections.*?>
+<?import java.net.URL?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="15.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegProdajeController">
+    <children>
+        <HBox alignment="TOP_RIGHT" spacing ="5.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <children>
+                <Button fx:id="exitBtn" text="X" onAction="#ugasi"/>
+            </children>
+        </HBox>
+        <Label text="Buy New Internet Package" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+                <Font size = "30.0"/>
+            </font>
+        </Label>  
+        <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Label text="ID:" />
+        <TextField fx:id="id" />
+        </HBox>
+        <HBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <Label text="Name:" />
+        <TextField fx:id="ime" />
+        </HBox>
+        <HBox spacing="5"  GridPane.columnIndex="0" GridPane.rowIndex="4">
+         <Label text="Address:" />
+        <TextField fx:id="adresa" />
+        </HBox> 
+        <HBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="5">
+        <Label text="Speed:"/>
+        <ChoiceBox fx:id="brzina"> 
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Integer fx:id="2" fx:value="2"/>
+                    <Integer fx:id="5" fx:value="5"/>
+                    <Integer fx:id="10" fx:value="10"/>
+                    <Integer fx:id="20" fx:value="20"/>
+                    <Integer fx:id="50" fx:value="50"/>
+                    <Integer fx:id="100" fx:value="100"/>
+                </FXCollections>
+            </items>    
+        </ChoiceBox>   
+        <Label text="Mbit/s"/> 
+        </HBox>
+        <HBox spacing="20"   GridPane.columnIndex="0" GridPane.rowIndex="6">
+        <Label text="Flow:"/>
+        <ChoiceBox fx:id="protok"> 
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1 GB"/>
+                    <String fx:value="5 GB"/>
+                    <String fx:value="10 GB"/>
+                    <String fx:value="100 GB"/>
+                    <String fx:value="FLAT"/>
+                </FXCollections>
+            </items>    
+        </ChoiceBox>   
+        </HBox>
+        <HBox spacing="15"  GridPane.columnIndex="0" GridPane.rowIndex="7">
+        <Label text="Contract duration:"/>
+        <RadioButton fx:id="jednaGod" text="ONE YEAR"> 
+            <HBox.margin>
+                <Insets right="3.0"/>
+            </HBox.margin>
+            <toggleGroup>
+            <ToggleGroup fx:id="trajanjeUgovora"/>
+            </toggleGroup>
+            </RadioButton> 
+        <RadioButton fx:id="dveGod" text="TWO YEARS">  
+            <toggleGroup>
+                <fx:reference source="trajanjeUgovora"/>
+            </toggleGroup>
+        </RadioButton>
+        </HBox>     
+        <HBox spacing="10" alignment="CENTER"  GridPane.columnIndex="0" GridPane.rowIndex="9" >
+                <Button fx:id="saveBtn" mnemonicParsing="true" text="_Save" onAction="#unesi"/>
+                <Button fx:id="clearBtn" mnemonicParsing="true" text="_Clear" onAction="#ocisti"  />
+                <Button fx:id="listAll" mnemonicParsing="true" text="_List" onAction="#listaj"/>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+    </padding>
+     <stylesheets>
+      <URL value="@kupipaket.css" />
+   </stylesheets>
+</GridPane>
